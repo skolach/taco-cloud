@@ -40,12 +40,13 @@ public class DesignTacoController {
 
   @ModelAttribute
   public void addIngredientToModel(Model model){
+    List<String> types = ingredientRepo.getTyes();
+
     List<Ingredient> ingredients = new ArrayList<>();
     ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 
-    String[] types = Ingredient.Type.values();
     for (String type : types) {
-      model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
+      model.addAttribute(type.toLowerCase(), filterByType(ingredients, type));
     }
   }
 
@@ -75,7 +76,7 @@ public class DesignTacoController {
     return "redirect:/orders/current";
   }
 
-  private List<Ingredient> filterByType( List<Ingredient> ingredients, Type type) {
+  private List<Ingredient> filterByType( List<Ingredient> ingredients, String type) {
     return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
   }
 }
