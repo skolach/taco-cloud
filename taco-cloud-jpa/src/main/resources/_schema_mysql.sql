@@ -1,3 +1,5 @@
+use taco_cloud_db;
+
 create table if not exists Ingredient (
   id varchar(4) not null,
   name varchar(25) not null,
@@ -5,7 +7,7 @@ create table if not exists Ingredient (
 );
 
 create table if not exists Taco (
-  id identity,
+  id bigint not null AUTO_INCREMENT KEY,
   name varchar(50) not null,
   createdAt timestamp not null
 );
@@ -21,8 +23,8 @@ alter table Taco_Ingredient
 alter table Taco_Ingredient
   add foreign key (ingredient_id) references Ingredient(id);
 
-create table if not exists Order (
-  id identity,
+create table if not exists `Order` (
+  id bigint not null AUTO_INCREMENT KEY,
   deliveryName varchar(50) not null,
   deliveryStreet varchar(50) not null,
   deliveryCity varchar(50) not null,
@@ -40,7 +42,7 @@ create table if not exists Order_Taco (
 );
 
 alter table Order_Taco
-  add foreign key (Order_id) references Order(id);
+  add foreign key (order_id) references `Order`(id);
 
 alter table Order_Taco
   add foreign key (taco_id) references Taco(id);

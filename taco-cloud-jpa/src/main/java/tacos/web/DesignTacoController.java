@@ -22,11 +22,14 @@ import tacos.Order;
 //import tacos.Ingredient.Type;
 import tacos.data.IngredientRepository;
 import tacos.data.TacoRepository;
+import tacos.data.TypeRepository;
 
 @Controller
 @RequestMapping("/design")
 @SessionAttributes("order")
 public class DesignTacoController {
+
+  private final TypeRepository typeRepo;
 
   private final IngredientRepository ingredientRepo;
 
@@ -40,7 +43,7 @@ public class DesignTacoController {
 
   @ModelAttribute
   public void addIngredientToModel(Model model){
-    List<String> types = ingredientRepo.getTyes();
+    List<String> types = typeRepo.getNames();
 
     List<Ingredient> ingredients = new ArrayList<>();
     ingredientRepo.findAll().forEach(i -> ingredients.add(i));
@@ -52,9 +55,12 @@ public class DesignTacoController {
 
   @Autowired
   public DesignTacoController(
-      IngredientRepository ingredientRepo, TacoRepository designRepo){
+      IngredientRepository ingredientRepo,
+      TacoRepository designRepo,
+      TypeRepository typeRepo){
     this.ingredientRepo = ingredientRepo;
     this.designRepo = designRepo;
+    this.typeRepo = typeRepo;
   }
 
   @GetMapping
