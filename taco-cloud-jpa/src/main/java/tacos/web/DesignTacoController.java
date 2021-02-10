@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import tacos.Taco;
 import tacos.Ingredient;
 import tacos.Order;
-//import tacos.Ingredient.Type;
+import tacos.Type;
 import tacos.data.IngredientRepository;
 import tacos.data.TacoRepository;
 import tacos.data.TypeRepository;
@@ -43,13 +43,13 @@ public class DesignTacoController {
 
   @ModelAttribute
   public void addIngredientToModel(Model model){
-    List<String> types = typeRepo.getNames();
+    List<Type> types = typeRepo.findAllTypes();
 
     List<Ingredient> ingredients = new ArrayList<>();
     ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 
-    for (String type : types) {
-      model.addAttribute(type.toLowerCase(), filterByType(ingredients, type));
+    for (Type type : types) {
+      model.addAttribute(type.getName(), filterByType(ingredients, type.getId()));
     }
   }
 
@@ -82,7 +82,7 @@ public class DesignTacoController {
     return "redirect:/orders/current";
   }
 
-  private List<Ingredient> filterByType( List<Ingredient> ingredients, String type) {
-    return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
+  private List<Ingredient> filterByType( List<Ingredient> ingredients, Long type_id) {
+    return ingredients.stream().filter(x -> x.getType_id().equals(type_id)).collect(Collectors.toList());
   }
 }

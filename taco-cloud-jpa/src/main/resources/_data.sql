@@ -1,26 +1,29 @@
-delete from Taco_Order_Tacos;
-delete from Taco_Ingredients;
-delete from Taco;
-delete from Taco_Order;
-delete from Ingredient;
+use taco_cloud_db;
 
-insert into Ingredient (id, name, type)
-  values ('FLTO', 'Flour Tortilla', 'WRAP');
-insert into Ingredient (id, name, type)
-  values ('COTO', 'Corn Tortilla', 'WRAP');
-insert into Ingredient (id, name, type)
-  values ('GRBF', 'Ground Beef', 'PROTEIN');
-insert into Ingredient (id, name, type)
-  values ('CARN', 'Carnitas', 'PROTEIN');
-insert into Ingredient (id, name, type)
-  values ('TMTO', 'Diced Tomatoes', 'VEGGIES');
-insert into Ingredient (id, name, type)
-  values ('LETC', 'Lettuce', 'VEGGIES');
-insert into Ingredient (id, name, type)
-  values ('CHED', 'Cheddar', 'CHEESE');
-insert into Ingredient (id, name, type)
-  values ('JACK', 'Monterrey Jack', 'CHEESE');
-insert into Ingredient (id, name, type)
-  values ('SLSA', 'Salsa', 'SAUCE');
-insert into Ingredient (id, name, type)
-  values ('SRCR', 'Sour Cream', 'SAUCE');
+delete from ingredient;
+delete from `type`;
+
+insert into `type`(name) values ('WRAP');
+select @ID = LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Flour Tortilla', @IDD)
+insert into ingredient(name, type_id) values ('Corn Tortilla', @IDD)
+
+insert into `type`(name) values ('PROTEIN');
+select @ID = LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Ground Beef', @IDD)
+insert into ingredient(name, type_id) values ('Carnitas', @IDD)
+
+insert into `type`(name) values ('VWGGIES');
+select @ID = LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Lettuce', @IDD)
+insert into ingredient(name, type_id) values ('Diced Tomatos', @IDD)
+
+insert into `type`(name) values ('CHEESE');
+select @ID = LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Cheddar', @IDD)
+insert into ingredient(name, type_id) values ('Monterey Jack', @IDD)
+
+insert into `type`(name) values ('SAUCE');
+select @ID = LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Salsa', @IDD)
+insert into ingredient(name, type_id) values ('Sour Cream', @IDD)

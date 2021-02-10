@@ -16,6 +16,14 @@ DROP TABLE if exists taco;
 DROP TABLE if exists `type`;
 DROP TABLE if exists `TYPE`;
 
+DROP TABLE if exists Taco_Ingredient;
+DROP TABLE if exists Ingredient;
+DROP TABLE if exists Order_Taco;
+DROP TABLE if exists Taco;
+DROP TABLE if exists `Order`;
+DROP TABLE if exists `Type`;
+DROP TABLE if exists `TYPE`;
+
 
 create table if not exists `type` (
   id bigint not null auto_increment key,

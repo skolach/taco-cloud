@@ -8,7 +8,7 @@ import tacos.Type;
 
 public interface TypeRepository extends CrudRepository<Type, Integer>{
 
-  @Query("SELECT name from TYPE")
-  public List<String> getNames();
+  @Query(value = "SELECT * FROM `type`", nativeQuery = true)
+  public List<Type> findAllTypes();
   
 }
