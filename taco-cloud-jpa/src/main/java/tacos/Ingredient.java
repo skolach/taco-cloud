@@ -2,17 +2,15 @@ package tacos;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @Data
 //@RequiredArgsConstructor
 //@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
-
+@Table(name = "INGREDIENT")
 public class Ingredient {
   @Id
   private Long id;
