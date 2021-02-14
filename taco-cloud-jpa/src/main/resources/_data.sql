@@ -1,4 +1,4 @@
-use taco_cloud_db;
+--use taco_cloud_db;
 
 delete from ingredient;
 delete from `type`;
