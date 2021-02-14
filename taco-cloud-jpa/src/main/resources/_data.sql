@@ -4,26 +4,26 @@ delete from ingredient;
 delete from `type`;
 
 insert into `type`(name) values ('WRAP');
-select @ID = LAST_INSERT_ID();
-insert into ingredient(name, type_id) values ('Flour Tortilla', @IDD)
-insert into ingredient(name, type_id) values ('Corn Tortilla', @IDD)
+select @ID := LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Flour Tortilla', @ID);
+insert into ingredient(name, type_id) values ('Corn Tortilla', @ID);
 
 insert into `type`(name) values ('PROTEIN');
-select @ID = LAST_INSERT_ID();
-insert into ingredient(name, type_id) values ('Ground Beef', @IDD)
-insert into ingredient(name, type_id) values ('Carnitas', @IDD)
+select @ID := LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Ground Beef', @ID);
+insert into ingredient(name, type_id) values ('Carnitas', @ID);
 
-insert into `type`(name) values ('VWGGIES');
-select @ID = LAST_INSERT_ID();
-insert into ingredient(name, type_id) values ('Lettuce', @IDD)
-insert into ingredient(name, type_id) values ('Diced Tomatos', @IDD)
+insert into `type`(name) values ('VEGGIES');
+select @ID := LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Lettuce', @ID);
+insert into ingredient(name, type_id) values ('Diced Tomatos', @ID);
 
 insert into `type`(name) values ('CHEESE');
-select @ID = LAST_INSERT_ID();
-insert into ingredient(name, type_id) values ('Cheddar', @IDD)
-insert into ingredient(name, type_id) values ('Monterey Jack', @IDD)
+select @ID := LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Cheddar', @ID);
+insert into ingredient(name, type_id) values ('Monterey Jack', @ID);
 
 insert into `type`(name) values ('SAUCE');
-select @ID = LAST_INSERT_ID();
-insert into ingredient(name, type_id) values ('Salsa', @IDD)
-insert into ingredient(name, type_id) values ('Sour Cream', @IDD)
+select @ID := LAST_INSERT_ID();
+insert into ingredient(name, type_id) values ('Salsa', @ID);
+insert into ingredient(name, type_id) values ('Sour Cream', @ID);
