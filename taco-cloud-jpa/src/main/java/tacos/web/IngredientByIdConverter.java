@@ -10,7 +10,7 @@ import tacos.Ingredient;
 import tacos.data.IngredientRepository;
 
 @Component
-public class IngredientByIdConverter implements Converter<String, Ingredient> {
+public class IngredientByIdConverter implements Converter<Long, Ingredient> {
 
   private IngredientRepository ingredientRepo;
 
@@ -20,7 +20,7 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
   }
   
   @Override
-  public Ingredient convert(String id) {
+  public Ingredient convert(Long id) {
     Optional<Ingredient> optionalIngredient = ingredientRepo.findById(id);
     return optionalIngredient.isPresent() ? optionalIngredient.get() : null;
   }

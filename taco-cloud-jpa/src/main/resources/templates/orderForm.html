@@ -69,11 +69,11 @@ xmlns:th="http://www.thymeleaf.org">
         th:errors="*{ccExpiration}">CC Expiration Error</span>
       <br/>
 
-      <label for="ccCVV">CVV: </label>
-      <input type="text" th:field="*{ccCVV}"/>
-      <span class="ccCVV"
-        th:if="${#fields.hasErrors('ccCVV')}"
-        th:errors="*{ccCVV}">ccCVV</span>
+      <label for="ccCvv">CVV: </label>
+      <input type="text" th:field="*{ccCvv}"/>
+      <span class="ccCvv"
+        th:if="${#fields.hasErrors('ccCvv')}"
+        th:errors="*{ccCvv}">ccCVV</span>
       <br/>
 
       <input type="submit" value="Submit order"/>
